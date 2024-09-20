@@ -1,0 +1,6 @@
+ @if (authService.currentUserSig()) {
+<div class="container d-flex justify-content-between">
+  <h2 class="text-bold">{{ authService.currentUserSig()?.username }}</h2>
+  <span class="pointer" (click)="logout()">Logout</span>
+</div>
+}

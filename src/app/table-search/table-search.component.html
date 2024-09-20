@@ -1,0 +1,22 @@
+<h1>Users Search</h1>
+<form [formGroup]="searchConfigForm">
+  <label>User Name
+    <input formControlName="userName" placeholder="Type User Name" />
+  </label>
+  <label>Results Limit
+    <select formControlName="resultLimit">
+      <option [value]="1">1</option>
+      <option [value]="3">3</option>
+      <option [value]="5">5</option>
+    </select>
+  </label>
+</form>
+
+  <p>
+    Found <b>{{ (users$ | async)?.length }}</b> Users
+  </p>
+  <ul>
+    @for (user of users$ | async; track user.id) {
+      <li class="card">{{ user.name }}</li>
+    }
+  </ul>
